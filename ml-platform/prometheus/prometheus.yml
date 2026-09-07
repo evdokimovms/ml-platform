@@ -1,0 +1,61 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+
+  - job_name: cadvisor
+    static_configs:
+      - targets:
+          - cadvisor:8080
+
+  - job_name: node-exporter
+    static_configs:
+      - targets:
+          - node-exporter:9100
+
+  - job_name: postgres
+    static_configs:
+      - targets:
+          - postgres-exporter:9187
+
+  - job_name: redis
+    static_configs:
+      - targets:
+          - redis-exporter:9121
+
+  - job_name: gpu
+    static_configs:
+      - targets:
+          - dcgm-exporter:9400
+
+  - job_name: statsd
+    static_configs:
+      - targets:
+          - statsd-exporter:9102
+
+  - job_name: kafka
+    static_configs:
+      - targets:
+          - kafka-exporter:9308
+
+  - job_name: spark
+ 
+    static_configs:
+      - targets:
+          - spark-master:9404
+          - spark-worker:9404
+
+  - job_name: kubernetes-nodes
+    static_configs:
+      - targets:
+          - 192.168.1.11:9100
+
+  - job_name: kubernetes-cadvisor
+    static_configs:
+      - targets:
+          - 192.168.1.11:8082
+
+  - job_name: qdrant
+    static_configs:
+      - targets:
+          - qdrant:6333
